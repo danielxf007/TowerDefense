@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dauvax5aus85v"]
+
+[ext_resource type="Texture2D" uid="uid://cg0ceex3lql1s" path="res://sprites/towers/cannon/towerDefense_canon.png" id="1_yb5gm"]
+[ext_resource type="Script" path="res://nodes/tower/cannon/cannon.gd" id="2_dt7cc"]
+[ext_resource type="PackedScene" uid="uid://c15xh7gj72ujo" path="res://nodes/projectile/projectile_path.tscn" id="3_6a5ap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_odqcm"]
+radius = 128.0
+
+[node name="Cannon" type="Sprite2D"]
+texture = ExtResource("1_yb5gm")
+script = ExtResource("2_dt7cc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_odqcm")
+
+[node name="ProjectilePath" parent="." instance=ExtResource("3_6a5ap")]
+position = Vector2(40, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(40, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

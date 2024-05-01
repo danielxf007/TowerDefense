@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c15xh7gj72ujo"]
+
+[ext_resource type="Script" path="res://nodes/projectile/projectile_path.gd" id="1_0gyii"]
+[ext_resource type="Script" path="res://nodes/projectile/ProjectilePathFollow.gd" id="1_tqm6o"]
+[ext_resource type="Texture2D" uid="uid://bcxbvfwanlf7t" path="res://sprites/projectiles/towerDefense_tile295.png" id="2_lhesx"]
+
+[sub_resource type="Curve2D" id="Curve2D_w3ieo"]
+
+[node name="ProjectilePath" type="Path2D"]
+curve = SubResource("Curve2D_w3ieo")
+script = ExtResource("1_0gyii")
+
+[node name="ProjectilePathFollow" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+script = ExtResource("1_tqm6o")
+
+[node name="Projectile" type="Sprite2D" parent="ProjectilePathFollow"]
+texture = ExtResource("2_lhesx")

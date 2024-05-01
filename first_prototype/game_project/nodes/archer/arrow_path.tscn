@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbaf7siyse1fk"]
+
+[ext_resource type="PackedScene" uid="uid://iq4k6co4og2a" path="res://nodes/archer/arrow.tscn" id="1_1bkrn"]
+[ext_resource type="Script" path="res://nodes/archer/arrow_path.gd" id="1_knhcj"]
+[ext_resource type="Script" path="res://nodes/archer/ArrowPathFollow.gd" id="2_ow51a"]
+
+[sub_resource type="Curve2D" id="Curve2D_mjkfr"]
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_mjkfr")
+script = ExtResource("1_knhcj")
+
+[node name="ArrowPathFollow" type="PathFollow2D" parent="."]
+loop = false
+script = ExtResource("2_ow51a")
+
+[node name="Arrow" parent="ArrowPathFollow" instance=ExtResource("1_1bkrn")]

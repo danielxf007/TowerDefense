@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1dbvo7puxl0b"]
+
+[ext_resource type="Texture2D" uid="uid://dl7ovdfk1u5ss" path="res://sprites/archer_og/52.png" id="1_07xwi"]
+[ext_resource type="Texture2D" uid="uid://b0leufi6immb7" path="res://sprites/archer_og/51.png" id="1_c8o57"]
+[ext_resource type="Texture2D" uid="uid://dxap8s0jbwdex" path="res://sprites/archer_og/53.png" id="2_inmxe"]
+[ext_resource type="Texture2D" uid="uid://gdew5fbqhpyl" path="res://sprites/archer_og/54.png" id="3_x6nc2"]
+[ext_resource type="Texture2D" uid="uid://b6kit4ak5qu4x" path="res://sprites/archer_og/55.png" id="4_7fygg"]
+[ext_resource type="Texture2D" uid="uid://diapnjqlnsbv5" path="res://sprites/archer_og/56.png" id="5_8376s"]
+[ext_resource type="Texture2D" uid="uid://lxibj7f8cb2o" path="res://sprites/archer_og/57.png" id="6_jpmoh"]
+[ext_resource type="Texture2D" uid="uid://dm60hq4f3073s" path="res://sprites/archer_og/58.png" id="7_frp73"]
+[ext_resource type="Texture2D" uid="uid://cl6hb6stt31rb" path="res://sprites/archer_og/59.png" id="8_gfrrj"]
+[ext_resource type="Texture2D" uid="uid://c5d18o8ovs56s" path="res://sprites/archer_og/60.png" id="9_4snv7"]
+[ext_resource type="Script" path="res://nodes/archer/archer.gd" id="11_bwnuq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yj0ox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_07xwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_inmxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x6nc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7fygg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8376s")
+}],
+"loop": true,
+"name": &"attack_h",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jpmoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_frp73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gfrrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4snv7")
+}],
+"loop": true,
+"name": &"attack_v",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c8o57")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Archer" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_yj0ox")
+animation = &"attack_h"
+script = ExtResource("11_bwnuq")
+
+[connection signal="animation_changed" from="." to="." method="_on_animation_changed"]
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

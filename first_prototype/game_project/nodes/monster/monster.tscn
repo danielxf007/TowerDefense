@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu4iug24kw8jg"]
+
+[ext_resource type="Texture2D" uid="uid://21b7gdo1s8d4" path="res://icon.svg" id="1_kb1hi"]
+[ext_resource type="Script" path="res://nodes/monster/monster.gd" id="2_wjlag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqbb6"]
+size = Vector2(128, 128)
+
+[node name="Monster" type="Sprite2D"]
+texture = ExtResource("1_kb1hi")
+script = ExtResource("2_wjlag")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vqbb6")

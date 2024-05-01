@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjue11qfrhcp"]
+
+[ext_resource type="Texture2D" uid="uid://bw08k0eudtmev" path="res://sprites/towers/7.png" id="1_5pp1j"]
+[ext_resource type="Script" path="res://nodes/tower/tower.gd" id="2_ikxrl"]
+[ext_resource type="PackedScene" uid="uid://b1dbvo7puxl0b" path="res://nodes/archer/archer.tscn" id="2_lvpnt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03egh"]
+radius = 256.0
+
+[node name="Tower" type="Sprite2D"]
+texture = ExtResource("1_5pp1j")
+script = ExtResource("2_ikxrl")
+metadata/_edit_horizontal_guides_ = [8.0]
+
+[node name="Archer" parent="." instance=ExtResource("2_lvpnt")]
+position = Vector2(-20, -84.4327)
+animation = &"attack_v"
+frame_progress = 0.347746
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.90735e-06, 0)
+shape = SubResource("CircleShape2D_03egh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

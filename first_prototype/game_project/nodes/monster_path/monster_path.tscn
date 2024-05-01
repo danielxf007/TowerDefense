@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3uaw1kv2fq3n"]
+
+[ext_resource type="Script" path="res://nodes/path_2d.gd" id="1_cqnhq"]
+[ext_resource type="PackedScene" uid="uid://bu4iug24kw8jg" path="res://nodes/monster/monster.tscn" id="1_j0fci"]
+[ext_resource type="Script" path="res://nodes/path.gd" id="2_5qg4n"]
+
+[node name="MonsterPath" type="Path2D"]
+script = ExtResource("1_cqnhq")
+
+[node name="MonsterPathFollow" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+script = ExtResource("2_5qg4n")
+
+[node name="Monster" parent="MonsterPathFollow" instance=ExtResource("1_j0fci")]

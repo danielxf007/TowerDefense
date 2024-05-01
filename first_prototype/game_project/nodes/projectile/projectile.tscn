@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8vqujqfha0ob"]
+
+[ext_resource type="Texture2D" uid="uid://bcxbvfwanlf7t" path="res://sprites/projectiles/towerDefense_tile295.png" id="1_g1vrg"]
+[ext_resource type="Script" path="res://nodes/projectile/projectile.gd" id="1_ot2jf"]
+
+[node name="Projectile" type="Sprite2D"]
+texture = ExtResource("1_g1vrg")
+script = ExtResource("1_ot2jf")
